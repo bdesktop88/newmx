@@ -5,7 +5,7 @@ $userFolder = $argv[1];
 $progressFile = "$userFolder/progress.log";
 $uploadFile = "$userFolder/uploaded_emails.txt";
 
-$categories = ['Gmail', 'G Suite', 'Office365', 'Yahoo', 'AOL', 'Hotmail/MSN', 'Others'];
+$categories = ['Gmail', 'G Suite', 'Office365', 'Yahoo', 'AOL', 'Hotmail/MSN', 'Others','Rackspace',IONOS];
 $categoryFiles = [];
 foreach ($categories as $cat) {
     $filename = strtolower(str_replace(['/', ' '], ['_', '_'], $cat)) . '.txt';
@@ -60,6 +60,14 @@ function getEmailCategory($email) {
             $aolMXs = ['aolsmtp-in.odin.com', 'mailin-02.mx.aol.com', 'mailin-03.mx.aol.com', 'mx-aol.mail.gm0.yahoodns.net'];
             foreach ($aolMXs as $aolMX) {
                 if (strpos($mx, $aolMX) !== false) return 'AOL';
+            }
+            $rackspaaceMXs = ['mx1.emailsrvr.com', 'mx2.emailsrvr.com', 'emailsrvr.com'];
+            foreach ($rackspaaceMXs as $rackspaaceMX) {
+                if (strpos($mx, $rackspaaceMX) !== false) return 'Rackspace';
+            }
+             $ionosMXs = ['mxint01.1and1.com', 'mxint02.1and1.com', '1and1.com'];
+            foreach ($ionosMXs as $ionosMX) {
+                if (strpos($mx, $ionosMX) !== false) return 'IONOS';
             }
         }
     }
