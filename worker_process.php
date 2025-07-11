@@ -81,7 +81,7 @@ function getEmailCategory($email) {
             foreach ($ionosMXs as $ionosMX) {
                 if (strpos($mx, strtolower($ionosMX)) !== false) return 'IONOS';
             }
-             $barracudanetworksMXs = ['d332882a.ess.barracudanetworks.com', 'd332882b.ess.barracudanetworks.com', '1and1.com'];
+             $barracudanetworksMXs = ['d332882a.ess.barracudanetworks.com', 'd332882b.ess.barracudanetworks.com', 'Amazon.com'];
             foreach ($barracudanetworksMXs as $barracudanetworksMX) {
                 if (strpos($mx, strtolower($barracudanetworksMX)) !== false) return 'Barracudanetworks';
             }
