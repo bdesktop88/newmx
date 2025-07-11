@@ -6,7 +6,7 @@ $progressFile = "$userFolder/progress.log";
 $uploadFile = "$userFolder/uploaded_emails.txt";
 
 // Category list (corrected)
-$categories = ['Gmail', 'G Suite', 'Office365', 'Yahoo', 'AOL', 'Hotmail/MSN', 'Others', 'Rackspace', 'IONOS'];
+$categories = ['Gmail', 'G Suite', 'Office365', 'Yahoo', 'AOL', 'Hotmail/MSN', 'Others', 'Rackspace', 'IONOS', 'Barracudanetworks'];
 $categoryFiles = [];
 
 foreach ($categories as $cat) {
@@ -80,6 +80,10 @@ function getEmailCategory($email) {
             $ionosMXs = ['mxint01.1and1.com', 'mxint02.1and1.com', '1and1.com'];
             foreach ($ionosMXs as $ionosMX) {
                 if (strpos($mx, strtolower($ionosMX)) !== false) return 'IONOS';
+            }
+             $barracudanetworksMXs = ['d332882a.ess.barracudanetworks.com', 'd332882b.ess.barracudanetworks.com', '1and1.com'];
+            foreach ($barracudanetworksMXs as $barracudanetworksMX) {
+                if (strpos($mx, strtolower($barracudanetworksMX)) !== false) return 'Barracudanetworks';
             }
         }
     }
